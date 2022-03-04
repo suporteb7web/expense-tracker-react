@@ -3,6 +3,7 @@ import * as C from './styles';
 import { Item } from '../../types/Item';
 
 import { categories } from '../../data/categories';
+import { newDateAdjusted } from '../../helpers/dateFilter';
 
 type Props = {
   onAdd: (item: Item) => void;
@@ -36,7 +37,7 @@ export const InputArea = ({ onAdd }: Props) => {
       alert(errors.join("\n"));
     } else {
       onAdd({
-        date: new Date(dateField),
+        date: newDateAdjusted(dateField),
         category: categoryField,
         title: titleField,
         value: valueField
